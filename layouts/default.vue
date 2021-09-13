@@ -94,7 +94,7 @@ export default {
         {
           icon: '',
           title: 'ຈັດການສະມາຊິກ',
-          to: '/admin/inspire',
+          to: '/admin/member',
         },
         {
           icon: '',
