@@ -98,6 +98,21 @@ export default {
         },
         {
           icon: '',
+          title: 'ຈັດການລູກຄ້າ',
+          to: '/admin/customer',
+        },
+        {
+          icon: '',
+          title: 'Transaction type',
+          to: '/admin/txn_type',
+        },
+        {
+          icon: '',
+          title: 'Transaction',
+          to: '/admin/txn',
+        },
+        {
+          icon: '',
           title: 'ເຕີມເງິນ',
           to: '/admin/walletIn',
         },

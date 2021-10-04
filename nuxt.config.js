@@ -15,8 +15,13 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/app_logo.png' }
-    ]
+      { rel: 'icon', type: 'image/x-icon', href: '/app_logo.ico' }
+    ],
+    script:[
+      {src:"https://kit.fontawesome.com/ca11dcec40.js",
+      rel:"stylesheet"
+    }
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -45,13 +50,15 @@ export default {
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: 'http://localhost:4000'
+  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,
       themes: {
         dark: {
           primary: colors.blue.darken2,

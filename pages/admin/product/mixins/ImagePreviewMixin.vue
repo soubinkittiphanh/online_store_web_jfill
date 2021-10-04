@@ -2,17 +2,38 @@
 export default {
   data() {
     return {
-      imagePreviewURL: null,
+      imagesPreviewURL: [],
+      files: [],
     }
   },
   methods: {
-    onFileChange(payload) {
+    onFilesChange(payload) {
+      // this.normalfile=this.$refs.filefield.files[0]
       const file = payload // in case vuetify file input
+      this.files = payload
       if (file) {
-        this.imagePreviewURL = URL.createObjectURL(file)
-        URL.revokeObjectURL(file) // free memory
+        console.log('FILE LEN: ' + file.length)
+        for (let i = 0; i < file.length; i++) {
+          this.imagesPreviewURL.push({
+            IMG_URL: URL.createObjectURL(file[i]),
+            NAME: file[i].name,
+            isvalid: this.sizeValidate(file[i].size),
+          })
+        }
+        // URL.revokeObjectURL(file) // free memory
       } else {
-        this.imagePreviewURL = null
+        this.imagesPreviewURL = null
+      }
+    },
+    deleteFile(idx) {
+      this.imagesPreviewURL.splice(idx, 1)
+      this.files.splice(idx, 1)
+    },
+    sizeValidate(z) {
+      console.log('SIZE'+z);
+      const maxSize = 200000
+      if (z > maxSize) {
+        return `Max size is ${maxSize/1000}Kb`
       }
     },
   },
